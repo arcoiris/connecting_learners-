@@ -33,8 +33,12 @@ group :doc do
 end
 
 gem 'therubyracer'
+
+# Adding an authentication system 
+gem 'devise', '~>3.2.2'
+
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+ gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'
