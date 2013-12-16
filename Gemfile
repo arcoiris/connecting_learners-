@@ -32,7 +32,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'therubyracer'
+#gem 'therubyracer'
 
 # Adding an authentication system 
 gem 'devise', '~>3.2.2'
