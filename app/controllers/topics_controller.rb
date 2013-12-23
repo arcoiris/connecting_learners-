@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topics.all
+    @topics = Topic.all
   end
 
   def new
@@ -13,9 +13,9 @@ class TopicsController < ApplicationController
     redirect to @topic 
   end
 
-  def show
-    @topic = Topic.find params[:id]
-  end
+  # def show
+  #   @topic = Topic.find params[:id]
+  # end
 
   def edit
   end

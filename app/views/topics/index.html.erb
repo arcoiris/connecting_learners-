@@ -1,2 +1,10 @@
-<h1>Topics#index</h1>
-<p>Find me in app/views/topics/index.html.erb</p>
+<% @topics.each do |topic| %>
+	<p><%= topic.name %></p>
+		<% topic.subtopics.each do |subtopic| %>
+			<ul>	
+				<li><%= subtopic.name %></li>
+			</ul>
+		<% end %> 
+	
+
+<% end %>
