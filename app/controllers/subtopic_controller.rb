@@ -22,6 +22,6 @@ class SubtopicController < ApplicationController
   def destroy
   end
 
-  # def show
-  # end
+  def show
+  end
 end
