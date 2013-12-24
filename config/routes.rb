@@ -1,4 +1,6 @@
 ConnectingLearners::Application.routes.draw do
+  root 'about#index'
+  get "about", to: 'about#index'
   get "subtopic/index"
   get "subtopic/show"
   get "subtopic/new"
@@ -7,7 +9,5 @@ ConnectingLearners::Application.routes.draw do
   get "subtopic/update"
   get "subtopic/destroy"
   devise_for :users
-  root 'about#index'
-  get "about", to: 'about#index'
   resources :topics
 end
