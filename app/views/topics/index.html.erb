@@ -2,9 +2,7 @@
 	<p><%= topic.name %></p>
 		<% topic.subtopics.each do |subtopic| %>
 			<ul>	
-				<li><%= subtopic.name %></li>
+				<li><%= link_to "#{subtopic.name}", subtopic_path(subtopic.id) %></li>
 			</ul>
 		<% end %> 
-	
-
 <% end %>
