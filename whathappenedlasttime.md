@@ -1,23 +1,4 @@
-##Resources for controllers:
-	Topic: all
+Subtopics show link is not working
+There was an issue with the subtopics controller, because it was name 'subtopic' not 'subtopics'
 
-## Models:  
-		- Location
-		- Country  
-		- State/Province
-		- City 
-
-		deborah.location.country
-
-		=> United States
-
-		deborah.location.country.state
-
-		=> New York
-
-		deborah.location.country.state.city
-
-		=> Brooklyn
-		deborah.location
-		
-		=> Brooklyn, NY, US 
+- Postgres on computer
