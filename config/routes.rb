@@ -4,4 +4,5 @@ ConnectingLearners::Application.routes.draw do
   devise_for :users
   resources :subtopics
   resources :topics
+  resources :listings
 end

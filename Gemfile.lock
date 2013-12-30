@@ -61,6 +61,7 @@ GEM
     execjs (2.0.2)
     ffi (1.9.3)
     formatador (0.2.4)
+    geocoder (1.1.9)
     guard (2.2.5)
       formatador (>= 0.2.4)
       listen (~> 2.1)
@@ -169,6 +170,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.0.3.0)
   coffee-rails (~> 4.0.0)
   devise (~> 3.2.2)
+  geocoder
   guard-livereload
   jbuilder (~> 1.2)
   jquery-rails
