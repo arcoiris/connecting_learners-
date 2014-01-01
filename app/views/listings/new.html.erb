@@ -1,1 +1,9 @@
-new.html.erb
+<center>
+<%= simple_form_for(@listing, html: {class: 'form-horizontal'}) do |f| %>
+  <div class="form-group">
+  	<%= f.input :title %>
+  	<%= f.input :description, as: :text %>
+  	<%= f.association :subtopic, as: :select, collection: @subtopics %>
+		<%= f.button :submit %>
+	</div>
+<% end %>
