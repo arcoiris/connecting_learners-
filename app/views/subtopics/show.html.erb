@@ -1,5 +1,5 @@
 <h2>Listings for <%= @subtopic.name %></h2>
 <% @subtopic.listings.each do |listing|
  %>
-	<p><%= listing.title %></p>
+	<p><%= link_to "#{listing.title}", listing_path(listing.id) %></p>
 <% end %>
