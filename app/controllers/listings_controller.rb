@@ -16,7 +16,7 @@ class ListingsController < ApplicationController
 
   def create
     if user_signed_in? 
-      safe_listing = params.require(:listing).permit(:title :description, :subtopic_id, :address, :latitude, :longitude).merge(user_id: current_user.id)
+      safe_listing = params.require(:listing).permit(:title, :description, :subtopic_id, :address, :latitude, :longitude).merge(user_id: current_user.id)
       @listing = Listing.create safe_listing
       redirect_to @listing
     else
