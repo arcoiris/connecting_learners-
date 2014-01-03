@@ -4,6 +4,7 @@
   	<%= f.input :title %>
   	<%= f.input :description, as: :text %>
   	<%= f.association :subtopic, as: :select, collection: @subtopics %>
+		<%= f.input :address, input_html: { value: @zip_code}  %>
 		<%= f.button :submit %>
 	</div>
 <% end %>
