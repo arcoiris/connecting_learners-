@@ -1,6 +1,6 @@
 class SubtopicsController < ApplicationController
   def index
-    @subtopics = Subtopic.all 
+    @subtopics = params[:q] ? Subtopic.search_for(params[:q]) : Subtopic.all
   end
 
   def new
@@ -12,7 +12,6 @@ class SubtopicsController < ApplicationController
     @subtopic = safe_subtopic.create(safe_subtopic)
     redirect to @subtopic
   end
-
 
   def show
     @subtopic = Subtopic.find params[:id]
