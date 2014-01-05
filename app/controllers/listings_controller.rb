@@ -1,22 +1,22 @@
 class ListingsController < ApplicationController
   def index
-  	@listings = Listing.all
+  	@listings = params[:q] ? Listing.search_for(params[:q]) : Listing.all
   end
 
   def show
   	@listing = Listing.find params[:id]
-  	@user = current_user
+    @user = @listing.user
   end
 
   def new 
   	@listing = Listing.new
     @subtopics = Subtopic.all
-    @zip_code = current_user.zip_code
+    @user_zip_code = current_user.zip_code
   end
 
   def create
     if user_signed_in? 
-      safe_listing = params.require(:listing).permit(:title, :description, :subtopic_id, :address, :latitude, :longitude).merge(user_id: current_user.id)
+      safe_listing = params.require(:listing).permit(:title, :description, :subtopic_id, :virtual, :in_person, :address, :latitude, :longitude).merge(user_id: current_user.id)
       @listing = Listing.create safe_listing
       redirect_to @listing
     else
