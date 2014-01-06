@@ -1,8 +1,7 @@
-<%= form_tag '/', url: subtopics_path, method: :get do %>
-  <%= search_field_tag :q, params[:q] %>
-  <%= submit_tag "Search" %>
+<%= form_tag '/subtopics', method: :get do %> 
+	<%= search_field_tag :q, params[:q] %>
+	<%= submit_tag "Search" %> 
 <% end %>
-
 
 <% @topics.each do |topic| %>
 	<p><%= topic.name %></p>
