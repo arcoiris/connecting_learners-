@@ -1,3 +1,7 @@
-<% @subtopics.each do |subtopic| %>
-	<p><%= subtopic.name %></p>
-<% end %>
+<h2>Your Topic Search Results:</h2>
+
+<% if @subtopics %>
+	<% @subtopics.each do |subtopic| %>
+		<p><%= link_to "#{subtopic.name}", subtopic_path(subtopic.id) %></p>
+	<% end %>
+<% end %> 
