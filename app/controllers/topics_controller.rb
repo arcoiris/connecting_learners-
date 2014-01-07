@@ -25,5 +25,4 @@ class TopicsController < ApplicationController
 
   def destroy
   end
-
 end
