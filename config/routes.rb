@@ -1,4 +1,4 @@
-ConnectingLearners::Application.routes.draw do
+Studdy::Application.routes.draw do
   root 'about#index'
   get "about", to: 'about#index'
   devise_for :users
