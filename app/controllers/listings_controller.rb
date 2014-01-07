@@ -6,6 +6,7 @@ class ListingsController < ApplicationController
   def show
   	@listing = Listing.find params[:id]
     @user = @listing.user
+    @user_timezone = (Timezone::Zone.new latlon: [ @user.latitude, @user.longitude ]).active_support_time_zone
   end
 
   def new 
