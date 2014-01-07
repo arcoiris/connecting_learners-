@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-ConnectingLearners::Application.config.secret_key_base = '031b32e8b71d67a3503162e808fef392a5f16e090263c15dfef9ad39922cc0338f2cbf0f2c953d218f5984a9b475241b3bca560bcf2d5412472754ee8c2fea38'
+Studdy::Application.config.secret_key_base = '031b32e8b71d67a3503162e808fef392a5f16e090263c15dfef9ad39922cc0338f2cbf0f2c953d218f5984a9b475241b3bca560bcf2d5412472754ee8c2fea38'

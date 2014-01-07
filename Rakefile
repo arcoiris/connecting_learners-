@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-ConnectingLearners::Application.load_tasks
+Studdy::Application.load_tasks
