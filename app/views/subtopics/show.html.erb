@@ -7,6 +7,7 @@
 
 <h2>Listings for <%= @subtopics.name %></h2>
 <% if params[:location] && params[:radius] %>
+	<div class="notice"><%= flash.notice %></div>
 	<% @nearby_listings.each do |nearby_listing| %>
 		<%= link_to"#{nearby_listing.title}", listing_path(nearby_listing.id) %>
 	<% end %>
