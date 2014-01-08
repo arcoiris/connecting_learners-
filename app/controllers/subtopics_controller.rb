@@ -17,7 +17,6 @@ class SubtopicsController < ApplicationController
     @subtopic = Subtopic.find params[:id]
     @mile_radii = [10,20,30]
     @user_zip_code = user_signed_in? ? current_user.zip_code : nil 
-
   end
 
   def edit
