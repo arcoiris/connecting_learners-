@@ -1,12 +1,17 @@
-<%= form_tag '', method: :get do %>
-	<%= label_tag 'location', "Find listings near you:" %>
-	<%= text_field_tag 'location', @user_zip_code, placeholder: 'Search by city or zip code'%>
+<%= form_tag subtopic_path, method: :get do %>
+	<%= label_tag :location, "Find listings near you:" %>
+	<%= text_field_tag :location, @user_zip_code, placeholder: 'Search by city or zip code'%>
 	<%= select_tag :radius, options_for_select(@mile_radii) %>
-	<%= submit_tag %>
+	<%= submit_tag "Search" %>
 <% end %>
 
-<h2>Listings for <%= @subtopic.name %></h2>
-<% @subtopic.listings.each do |listing|
- %>
-	<p><%= link_to "#{listing.title}", listing_path(listing.id) %></p>
+<h2>Listings for <%= @subtopics.name %></h2>
+<% if params[:location] && params[:radius] %>
+	<% @nearby_listings.each do |nearby_listing| %>
+		<%= link_to"#{nearby_listing.title}", listing_path(nearby_listing.id) %>
+	<% end %>
+<% else %>
+	<% @subtopics.listings.each do |listing| %>
+		<p><%= link_to "#{listing.title}", listing_path(listing.id) %></p>
+	<% end %>
 <% end %>

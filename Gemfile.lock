@@ -181,6 +181,7 @@ DEPENDENCIES
   guard-livereload
   jbuilder (~> 1.2)
   jquery-rails
+  pry (~> 0.9.12.4)
   rack-livereload
   rails (= 4.0.1)
   rename

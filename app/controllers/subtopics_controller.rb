@@ -14,9 +14,10 @@ class SubtopicsController < ApplicationController
   end
 
   def show
-    @subtopic = Subtopic.find params[:id]
-    @mile_radii = [10,20,30]
+    @subtopics = Subtopic.find params[:id]
     @user_zip_code = user_signed_in? ? current_user.zip_code : nil 
+    @nearby_listings = @subtopics.listings.near(params[:location], params[:radius])
+    @mile_radii = [10,20,30]
   end
 
   def edit
