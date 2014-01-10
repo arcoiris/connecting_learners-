@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140105191030) do
+ActiveRecord::Schema.define(version: 20140103003904) do
 
   create_table "listings", force: true do |t|
     t.integer  "user_id"
@@ -53,8 +53,6 @@ ActiveRecord::Schema.define(version: 20140105191030) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "last_name"
-    t.string   "first_name"
     t.string   "zip_code"
     t.float    "latitude"
     t.float    "longitude"

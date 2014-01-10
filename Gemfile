@@ -60,6 +60,8 @@ gem 'devise', '~> 3.2.2'
  gem 'rename'
 
  gem "pry", "~> 0.9.12.4"
+
+ gem 'faker'
 # Use unicorn as the app server
 # gem 'unicorn'
 

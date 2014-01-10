@@ -7,17 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 puts "Beginning seeding!"
-# DAY days of the week
-	Day.create(name: "Monday")
-	Day.create(name: "Tuesday")
-	Day.create(name: "Wednesday")
-	Day.create(name: "Thursday")
-	Day.create(name: "Friday")
-	Day.create(name: "Saturday")
-	Day.create(name: "Sunday")
-
-puts "Finished seeding days! On to Topics & Subtopics"
-
 # TOPIC topic_: 1 | FORMAL SCIENCES (its create was done in the console)
 	Subtopic.create(name: "Computer Science", topic_id: 1)
 	Subtopic.create(name: "Logic", topic_id: 1)
