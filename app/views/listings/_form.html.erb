@@ -1,0 +1,17 @@
+<%= simple_form_for(@listing) do |f| %>
+  <div class="form-group">
+  	<%= f.input :title %>
+  </div>
+  <div class="form-group">
+  	<%= f.input :description, as: :text %>
+  	<%= f.association :subtopic, label: 'Topic', as: :select, collection: @subtopics %>
+		<%= f.input :address, input_html: { value: @user_zip_code}  %>
+	</div>	
+	<div class="checkboxes">
+		<%= f.input :virtual, as: :boolean %>
+		<%= f.input :in_person, as: :boolean %>
+	</div>
+	<div class="form-actions">
+		<%= f.button :submit %>
+	</div>
+<% end %>
