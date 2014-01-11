@@ -36,11 +36,20 @@ class ListingsController < ApplicationController
 
   def update
       @listing = Listing.find params[:id]
-      safe_listing = params.require(:listing).permit(:title, :description, :subtopic_id, :virtual, :in_person, :address, :latitude, :longitude).merge(user_id: current_user.id)
+      safe_listing = params.require(:listing).permit(:title, :description, :subtopic_id, :virtual, :in_person, :address, :latitude, :longitude).merge(user_id: @listing.user.id)
       @listing.update safe_listing
       redirect_to @listing
   end
 
   def destroy
+      @listing = (Listing.find params[:id])
+    if current_user == @listing.user
+      @listing.destroy
+      flash[:alert] = "Successully deleted listing"
+      redirect_to root_path
+    else 
+      flash[:alert] = "You are not authorized to execute this action"
+      redirect_to root_path
+    end
   end
 end

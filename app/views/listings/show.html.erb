@@ -1,3 +1,6 @@
+<% if current_user == @user %> 
+	<%= link_to "Edit listing", edit_listing_path %> | <%= link_to "Delete listing",  listing_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+<% end %>
 <p><%= @listing.title %></p>
 <p><%= @listing.description %></p>
 <% if @listing.virtual %> 
