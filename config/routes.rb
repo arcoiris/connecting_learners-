@@ -5,4 +5,5 @@ Studdy::Application.routes.draw do
   resources :subtopics
   resources :topics
   resources :listings
+  resources :users, only: [:show]
 end

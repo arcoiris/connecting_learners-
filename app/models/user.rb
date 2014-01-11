@@ -10,8 +10,5 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :name, length: { maximum: 50 }
   after_validation :geocode, :if => :zip_code_changed?
-
-  def name 
-  end
-
+  has_many :listings 
 end

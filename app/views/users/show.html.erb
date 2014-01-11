@@ -1,0 +1,5 @@
+<div><%= @user.name %></div>
+Recent Listings: 
+<% @user.listings.each do |listing| %>
+	<div><%= link_to "#{listing.title}", listing_path(listing.id) %></div> 
+<% end %> 

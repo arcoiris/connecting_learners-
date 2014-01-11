@@ -40,7 +40,6 @@ class ListingsController < ApplicationController
       @listing.update safe_listing
       redirect_to @listing
   end
-
   def destroy
       @listing = (Listing.find params[:id])
     if current_user == @listing.user

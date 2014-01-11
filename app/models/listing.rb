@@ -1,4 +1,5 @@
 class Listing < ActiveRecord::Base
+	scope :recent, -> {where('created_at >= ?', Date.today - 30)}
 	belongs_to :user
 	belongs_to :subtopic
 	geocoded_by :address
