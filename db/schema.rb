@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140111011522) do
+ActiveRecord::Schema.define(version: 20140111014544) do
 
   create_table "conversations", force: true do |t|
     t.string   "subject",    default: ""
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20140111011522) do
     t.string   "zip_code"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

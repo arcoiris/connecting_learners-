@@ -6,6 +6,12 @@ class User < ActiveRecord::Base
   geocoded_by :zip_code
   validates :zip_code, presence: :true
   validates :zip_code, :numericality => { :only_integer => true }
-  validates :zip_code, :length => { :is => 5 }
+  validates :zip_code, length: { :is => 5 }
+  validates :name, presence: true
+  validates :name, length: { maximum: 50 }
   after_validation :geocode, :if => :zip_code_changed?
+
+  def name 
+  end
+
 end
