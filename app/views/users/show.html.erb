@@ -4,6 +4,18 @@ Recent Listings:
 	<div><%= link_to "#{listing.title}", listing_path(listing.id) %></div> 
 <% end %>
 
-<% @user.messages.each do |message| %> 
-	<%= message.body %>
+
+<% if current_user == @user %>
+	Your Notifications:
+	<% @user.listings.each do |listing| %>
+		<%= listing.title %> 
+		<br>
+		<% if listing.notifications.empty? %>
+			No notifications
+		<% else %>
+			<% listing.notifications.each do |notification| %>
+				<%= notification.user.name %>
+			<% end %>
+		<% end %>
 	<% end %>
+<% end %>

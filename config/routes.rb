@@ -6,4 +6,5 @@ Studdy::Application.routes.draw do
   resources :topics
   resources :listings
   resources :users, only: [:show]
+  resources :notifications, only: [:create]
 end

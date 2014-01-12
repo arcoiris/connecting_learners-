@@ -23,8 +23,6 @@ Welcome, <%= current_user.email %>! <%= link_to "Logout", destroy_user_session_p
 			<div class="navbar-header">
 				<%= link_to "Studdy", root_path, class: 'navbar-brand' %>
 			</div>
-			<p class="notice"><%= notice %></p>
-			<p class="alert"><%= alert %></p>
 		</nav>
 	</header>
 	<%= yield %>
