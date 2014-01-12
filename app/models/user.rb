@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  acts_as_messageable
   geocoded_by :zip_code
   validates :zip_code, presence: :true
   validates :zip_code, :numericality => { :only_integer => true }

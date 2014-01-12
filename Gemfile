@@ -63,8 +63,6 @@ gem 'devise', '~> 3.2.2'
 
  gem 'faker'
 
- gem "mailboxer", "~> 0.11.0"
-
  gem 'mail'
 # Use unicorn as the app server
 # gem 'unicorn'
