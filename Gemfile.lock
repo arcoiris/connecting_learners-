@@ -195,6 +195,7 @@ DEPENDENCIES
   geocoder (~> 1.1.9)
   guard-livereload
   jquery-rails
+  mail
   mailboxer (~> 0.11.0)
   pg
   pry (~> 0.9.12.4)

@@ -29,4 +29,7 @@ class SubtopicsController < ApplicationController
 
   def destroy
   end
+
+  def contact
+  end
 end
