@@ -7,9 +7,13 @@ class UserMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'Welcome to Studdy')
   end
 
-  def notifcation_email(poster, user, notification)
+  def notification_email(listing_id, user, notification)
     @user = user
+    @listing = Listing.find(listing_id)
+    @poster = Listing.find(listing_id).user
     @notification = notification 
+    @user_profile = "http://localhost:3000/users/#{@user.id}"
+    mail(to: @poster.email, subject: "A user has expressed interest in your listing")
   end
 end
 

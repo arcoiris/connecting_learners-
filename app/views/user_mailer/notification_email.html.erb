@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello, <%= @poster.name %></h1>
+    <p>
+     <%= @user.name %> is interested in studying with you.<br/>
+    </p>
+    <p>
+      To check out their page, go to: <%= link_to "#{@user.name}", @user_profile %>.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
