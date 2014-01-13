@@ -6,7 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
 puts "Beginning seeding!"
+User.create(name: "Deborah Lora", email: "deborlora@gmail.com", password: "password", zip_code: 11213)
+
 # TOPIC topic_: 1 | FORMAL SCIENCES (its create was done in the console)
 	Subtopic.create(name: "Computer Science", topic_id: 1)
 	Subtopic.create(name: "Logic", topic_id: 1)
@@ -42,5 +45,12 @@ Topic.create(name: 'Applied Sciences')
 	Subtopic.create(name: 'Engineering', topic_id: 4)
 	Subtopic.create(name: 'Environmental Studies', topic_id: 4)
 
+	puts "creating fake users"
+	25.times do |u|
+		User.create(name: Faker::Name.name, email: Faker::Internet.email , password: "password", zip_code: 11213)
+	end	
+	puts "creating fake listings"
+	(1..22).step do |subtopic|
+	end
 
 puts "Finished Seeding"
