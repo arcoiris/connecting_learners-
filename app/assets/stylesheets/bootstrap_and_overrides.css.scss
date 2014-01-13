@@ -1,1 +1,17 @@
 @import 'bootstrap';
+hr { display: block; height: 1px;
+    border: 0; border-top: 1px solid #ccc;
+    margin: 1em 0; padding: 0; }
+.page {
+	  margin: 0 auto;
+    max-width: 500px; 
+    padding: 20px; 
+}
+.span3 {  
+    height: 300px !important;
+    overflow: scroll;
+}
+.about{
+	max-width: 500px; 
+    padding: 20px; 
+}

@@ -9,10 +9,11 @@
 <% if params[:location] && params[:radius] %>
 	<div class="notice"><%= flash.notice %></div>
 	<% @nearby_listings.each do |nearby_listing| %>
-		<%= link_to"#{nearby_listing.title}", listing_path(nearby_listing.id) %>
+		<%= link_to"#{nearby_listing.title}", listing_path(nearby_listing.id) %><hr>
 	<% end %>
+	</table>
 <% else %>
 	<% @subtopics.listings.each do |listing| %>
-		<p><%= link_to "#{listing.title}", listing_path(listing.id) %></p>
+		<%= link_to "#{listing.title}", listing_path(listing.id) %><hr>
 	<% end %>
 <% end %>

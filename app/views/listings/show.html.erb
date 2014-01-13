@@ -1,7 +1,10 @@
+<div class="page">
 <% if current_user == @user %> 
 	<%= link_to "Edit listing", edit_listing_path %> | <%= link_to "Delete listing",  listing_path, method: :delete, data: {confirm: 'Are you sure?'} %>
 <% end %>
 <%= render @listing %>
 <!-- <button class="btn btn-primary" type="button">Express interest</button> -->
 <%= button_to "Express interest", notifications_path(listing_id: @listing.id), method: :post, confirm: "An email will be sent to #{@listing.user.name} notifying them of your interest. Are you sure?" %>
+
+</div>
 

@@ -1,21 +1,30 @@
-<div><%= @user.name %></div>
-Recent Listings: 
+<div class="page">
+	<div><h2><%= @user.name %></h2></div>
+	<p>I’m Deborah. After I left college, I spent some time trying out new activities, and I stumbled upon programming for fun and utility. Then, it occurred to me, after learning more through movements such as UnCollege, that I could actually make this something that I do for a lot of my time. Now, I am participating in a Back-end Web Development course at General Assembly.</p>
+<h2>Recent Listings:</h2> 
+<div class="span3">
+	<table class="table table-hover">	
 <% @user.listings.each do |listing| %>
-	<div><%= link_to "#{listing.title}", listing_path(listing.id) %></div> 
+	<th><%= link_to "#{listing.title}", listing_path(listing.id) %> <% if current_user == @user %>    
+		<%= link_to "Edit", edit_listing_path %> | <%= link_to "Delete",  listing_path, method: :delete, data: {confirm: 'Are you sure?'} %> <% end %></th></tr>
 <% end %>
-
+	</table>
+</div>
 
 <% if current_user == @user %>
-	Your Notifications:
+	<h2>Your Notifications:</h2>
+	<div class="span3">
+		<table class="table table-hover">	
 	<% @user.listings.each do |listing| %>
-		<%= listing.title %> 
-		<br>
+		<th><%= link_to "#{listing.title}", listing_path(listing.id) %>
 		<% if listing.notifications.empty? %>
-			No notifications
+			<ul><i>No notifications</i></ul></tr></th>
 		<% else %>
 			<% listing.notifications.each do |notification| %>
-				<%= notification.user.name %>
+				<div><ul><i><%= link_to "#{notification.user.name} is interested.", user_path(notification.user.id) %></i></div><tr>
 			<% end %>
 		<% end %>
 	<% end %>
 <% end %>
+</div>
+	</div>
