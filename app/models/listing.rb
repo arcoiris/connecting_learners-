@@ -1,5 +1,7 @@
 class Listing < ActiveRecord::Base
-	scope :recent, -> {where('created_at >= ?', Date.today - 30)}
+	scope :recent, -> { where('created_at >= ?', Date.today - 30) }
+	scope :virtual, -> { where(virtual: true) }
+	scope :in_person, -> { where(in_person: true) }
 	has_many :notifications
 	belongs_to :user
 	belongs_to :subtopic
@@ -10,6 +12,5 @@ class Listing < ActiveRecord::Base
 	def self.search_for(query)
 		where('title LIKE :query', query: "%#{query}%")
 	end
-
 end
 
