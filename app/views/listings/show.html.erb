@@ -3,5 +3,5 @@
 <% end %>
 <%= render @listing %>
 <!-- <button class="btn btn-primary" type="button">Express interest</button> -->
-<%= button_to "Express interest", notifications_path(listing_id: @listing.id), method: :post %>
+<%= button_to "Express interest", notifications_path(listing_id: @listing.id), method: :post, confirm: "An email will be sent to #{@listing.user.name} notifying them of your interest. Are you sure?" %>
 

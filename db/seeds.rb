@@ -44,15 +44,15 @@ Topic.create(name: 'Applied Sciences')
 	Subtopic.create(name: 'Environmental Studies', topic_id: 4)
 
 	puts "creating user case users!"
-		User.create(name: "Deborah Lora", email: "deborlora@gmail.com", password: "password", zip_code: 11213 )
-		User.create(name: "Dagny Jones", email: "dagnyjones@gmail.com", password: "password", zip_code: 11213 )
+		User.create!(name: "Deborah Lora", email: "deborlora@gmail.com", password: "password", zip_code: 11213, about: Faker::Lorem.paragraph )
+		User.create!(name: "Dagny Jones", email: "dagnyjones@gmail.com", password: "password", zip_code: 11213, about: Faker::Lorem.paragraph )
 	5.times do
 		Listing.create(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, virtual: [true, false].sample , in_person: [true, false].sample , user_id: 1, subtopic_id: rand(1..5))
 		Listing.create(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, virtual: [true, false].sample , in_person: [true, false].sample , user_id: 2, subtopic_id: rand(1..5))
 	end
 	puts "creating fake users"
 	25.times do |u|
-		User.create(name: Faker::Name.name, email: Faker::Internet.email , password: "password", zip_code: 11213)
+		User.create!(name: Faker::Name.name, email: Faker::Internet.email , password: "password", zip_code: 11213, about: Faker::Lorem.paragraph)
 	end	
 	puts "creating fake listings"
 	(1..22).step do |subtopic|
@@ -60,8 +60,6 @@ Topic.create(name: 'Applied Sciences')
 			Listing.create(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, virtual: [true, false].sample , in_person: [true, false].sample , user_id:rand(1..26), subtopic_id: subtopic)
 		end
 	end
-
-
 puts "Finished Seeding"
 
 
