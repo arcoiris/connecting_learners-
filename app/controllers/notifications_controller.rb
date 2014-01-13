@@ -1,5 +1,6 @@
 class NotificationsController < ApplicationController
 
+# how to send a message that the message was sent?
 	def create
 		if user_signed_in? 
 			@user = current_user
