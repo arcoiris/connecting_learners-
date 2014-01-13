@@ -12,17 +12,24 @@
 <div class="container">
 	<header class="row">
 		<% if user_signed_in? %>
-Welcome, <%= current_user.email %>! <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-<% else %>
-<%= link_to "Sign Up", new_user_registration_path %> | <%= link_to "Sign In", new_user_session_path %>
-<% end %>
-<% if user_signed_in? %> 
-	| <%= link_to "Create a listing", new_listing_path %>
-<% end %> 
+Welcome, <%= current_user.name %> 
+	<% end %>
 		<nav class="navbar navbar-pills">
 			<div class="navbar-header">
 				<%= link_to "Studdy", root_path, class: 'navbar-brand' %>
 			</div>
+			<ul class="nav navbar-nav">
+				<li><%= link_to "Topics", topics_path %></li>
+				<% if user_signed_in? %>
+					<li><%= link_to "Create a listing", new_listing_path %></li>
+					<li><%= link_to "My profile", user_path(current_user.id) %></li>
+					<li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "pull-right"  %></li>
+				<% else %>
+					<li><%= link_to "Sign In", new_user_session_path %></li>
+					<li><%= link_to "Sign Up", new_user_registration_path %></li>
+				<% end %>
+					<li>
+			</ul>
 		</nav>
 	</header>
 	<%= yield %>
