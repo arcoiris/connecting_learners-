@@ -9,6 +9,7 @@
 
 puts "Beginning seeding!"
 # TOPIC topic_: 1 | FORMAL SCIENCES (its create was done in the console)
+Topic.create(name: "Formal Sciences")
 	Subtopic.create(name: "Computer Science", topic_id: 1)
 	Subtopic.create(name: "Logic", topic_id: 1)
 	Subtopic.create(name: "Mathematics", topic_id: 1)
@@ -46,7 +47,7 @@ Topic.create(name: 'Applied Sciences')
 	puts "creating user case users!"
 		User.create!(name: "Deborah Lora", email: "deborlora@gmail.com", password: "password", zip_code: 11213, about: Faker::Lorem.paragraph )
 		User.create!(name: "Dagny Jones", email: "dagnyjones@gmail.com", password: "password", zip_code: 11213, about: Faker::Lorem.paragraph )
-		Listing.create(title: "Looking for a Ruby on Rails beginner to pair code with!", description: "Hi there, I've recently finished a back-end web development course at General Assembly! Express interest, and I'll get back to you!" virtual: [true, false].sample , in_person: [true, false].sample , user_id: 1, subtopic_id: rand(1..5), address: "11213")
+		Listing.create(title: "Looking for a Ruby on Rails beginner to pair code with!", description: "Hi there, I've recently finished a back-end web development course at General Assembly! Express interest, and I'll get back to you!", virtual: [true, false].sample, in_person: [true, false].sample , user_id: 1, subtopic_id: rand(1..5), address: "11213")
 	5.times do
 		Listing.create(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, virtual: [true, false].sample , in_person: [true, false].sample , user_id: 1, subtopic_id: rand(1..5), address: "11213")
 		Listing.create(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, virtual: [true, false].sample , in_person: [true, false].sample , user_id: 2, subtopic_id: rand(1..5), address: "11213")
