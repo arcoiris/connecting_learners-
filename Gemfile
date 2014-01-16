@@ -32,9 +32,11 @@ group :development do
 	gem 'guard-livereload', require: false
 	gem 'better_errors'
 	gem 'binding_of_caller'
-	gem 'rack-livereload'
-	gem 'sqlite3'
+	gem 'rack-livereload'	
 end
+
+gem 'pg'
+
 
 #gem 'therubyracer'
 
@@ -64,6 +66,8 @@ gem 'devise', '~> 3.2.2'
  gem 'faker'
 
  gem 'mail'
+
+ gem 'figaro'
 # Use unicorn as the app server
 # gem 'unicorn'
 

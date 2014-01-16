@@ -4,6 +4,6 @@ class Subtopic < ActiveRecord::Base
 
 
 	def self.search_for(query)
-		where('name LIKE :query', query: "%#{query}%")
+		where('name ILIKE :query', query: "%#{query}%")
 	end
 end
