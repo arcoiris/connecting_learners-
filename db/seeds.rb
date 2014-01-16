@@ -25,10 +25,7 @@ Topic.create(name: "Humanities")
 	Subtopic.create(name: 'Philosophy', topic_id: 2)
 	Subtopic.create(name: 'Visual Arts', topic_id: 2)
 
-# TOPIC topic_: 3 | SOCIAL SCIENCES
-Topic.create(name: 'Social Sciences')
-
-# TOPIC topic_: 4 | NATURAL SCIENCES
+# TOPIC topic_: 3 | NATURAL SCIENCES
 Topic.create(name: 'Natural Sciences')
 	Subtopic.create(name: 'Space Sciences', topic_id: 3)
 	Subtopic.create(name: 'Earth Sciences', topic_id: 3)

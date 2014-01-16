@@ -1,6 +1,10 @@
 class SubtopicsController < ApplicationController
   def index
     @subtopics = params[:q] ? Subtopic.search_for(params[:q]) : Subtopic.all
+    if @subtopics.empty? 
+       flash[:notice] = "No topics found using the keyword '#{params[:q]}.' Try again or refer to the list."
+       redirect_to topics_path
+    end
   end
 
   def new
