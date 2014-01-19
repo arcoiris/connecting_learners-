@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   def index
-  	@listings = params[:q] ? Listing.search_for(params[:q]) : Listing.all
+  	@listings = params[:id] && params[:virtual] ? Listing.by_subtopic(params[:id]).by_virtual(:virtual) : Listing.all
+
   end
 
   def show

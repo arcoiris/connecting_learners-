@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
 
   def index
-    @topics = params[:q] ? Subtopic.search_for(params[:q]) : Topic.all
+    @topics =Topic.all
   end
   
   def new

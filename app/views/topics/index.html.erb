@@ -2,7 +2,7 @@
 <%= form_tag '/subtopics', method: :get do %>
 <center> 
 	<%= search_field_tag :q, params[:q], placeholder: "Search for a topic" %>
-	<%= submit_tag "Search" %> 
+	<%= submit_tag "Search", name: nil %> 
 <% end %>
 <div class="notice"><%= flash[:notice] %>
 </div>

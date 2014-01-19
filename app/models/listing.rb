@@ -9,8 +9,16 @@ class Listing < ActiveRecord::Base
 	
 	after_validation :geocode, :if => :address_changed?
 
-	def self.search_for(query)
-		where('title LIKE :query', query: "%#{query}%")
+	def self.by_subtopic(id)
+		Listing.where(subtopic_id: id)
 	end
+
+	def self.by_virtual(virtual)
+		Listing.where(virtual: virtual)
+	end
+
+	def self.by_in_person(in_person)
+
+	end  
 end
 
