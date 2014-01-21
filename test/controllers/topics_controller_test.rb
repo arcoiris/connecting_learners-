@@ -1,8 +1,9 @@
 require 'test_helper'
 
-class TopicsControllerTest < ActionController::TestCase
+class TopicsControllerTest < ApplicationControllerTest
   test "should get show" do
-    get :show
+    topic = Topic.create
+    get :show, id: topic.id
     assert_response :success
   end
 
@@ -12,13 +13,14 @@ class TopicsControllerTest < ActionController::TestCase
   end
 
   test "should get destroy" do
-    get :destroy
+    topic = Topic.create
+    get :destroy, id: topic.id
     assert_response :success
   end
 
   test "should get create" do
-    get :create
-    assert_response :success
+    get :create, {topic: {topic: nil}}
+    assert_response :redirect
   end
 
   test "should get new" do

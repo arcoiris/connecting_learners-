@@ -2,10 +2,10 @@
 
 one:
   user_id: 1
-  topic_id: 1
+  subtopic_id: 1
   description: MyText
 
 two:
   user_id: 1
-  topic_id: 1
+  subtopic_id: 1
   description: MyText

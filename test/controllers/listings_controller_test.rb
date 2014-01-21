@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ListingsControllerTest < ActionController::TestCase
+class ListingsControllerTest < ApplicationControllerTest
   test "should get index" do
     get :index
     assert_response :success

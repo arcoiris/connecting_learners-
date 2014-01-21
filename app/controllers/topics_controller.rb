@@ -11,7 +11,7 @@ class TopicsController < ApplicationController
   def create
     safe_topic = params.require(:topic).permit(:name)
     @topic = Topic.create safe_topic
-    redirect to @topic 
+    redirect_to @topic 
   end
 
   def show
