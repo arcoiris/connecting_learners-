@@ -13,6 +13,6 @@ class ListingTest < ActiveSupport::TestCase
 
     listing.in_person = false
     listing.virtual = true
-		assert listing.valid?, "Should be valid"
+	assert listing.valid?, "Should be valid"
   end
 end

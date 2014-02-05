@@ -1,4 +1,4 @@
 <h2>Listings for <%= @subtopic.name %></h2>
-<% @subtopic.listings.each do |listing| %>
+<% @subtopic.listings.order(created_at: :desc).each do |listing| %>
 		<%= link_to "#{listing.title}", listing_path(listing.id) %><hr>
 <% end %>
