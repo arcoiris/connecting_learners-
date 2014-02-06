@@ -44,10 +44,10 @@ Topic.create(name: 'Applied Sciences')
 	puts "creating user case users!"
 		User.create!(name: "Deborah Lora", email: "deborlora@gmail.com", password: "password", zip_code: 11213, about: Faker::Lorem.paragraph )
 		User.create!(name: "Dagny Jones", email: "dagnyjones@gmail.com", password: "password", zip_code: 11213, about: Faker::Lorem.paragraph )
-		Listing.create(title: "Looking for a Ruby on Rails beginner to pair code with!", description: "Hi there, I've recently finished a back-end web development course at General Assembly! Express interest, and I'll get back to you!", virtual: [true, false].sample, in_person: [true, false].sample , user_id: 1, subtopic_id: rand(1..5), address: "11213")
+		Listing.create(title: "Looking for a Ruby on Rails beginner to pair code with!", description: "Hi there, I've recently finished a back-end web development course at General Assembly! Express interest, and I'll get back to you!", meeting_type: ["In-person", "Virtual", "Both"].sample, user_id: 1, subtopic_id: rand(1..5), address: "11213")
 	5.times do
-		Listing.create(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, virtual: [true, false].sample , in_person: [true, false].sample , user_id: 1, subtopic_id: rand(1..5), address: "11213")
-		Listing.create(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, virtual: [true, false].sample , in_person: [true, false].sample , user_id: 2, subtopic_id: rand(1..5), address: "11213")
+		Listing.create(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, meeting_type: ["In-person", "Virtual", "Both"].sample, user_id: 1, subtopic_id: rand(1..5), address: "11213")
+		Listing.create(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, meeting_type: ["In-person", "Virtual", "Both"].sample, user_id: 2, subtopic_id: rand(1..5), address: "11213")
 	end
 	puts "creating fake users"
 	25.times do |u|
@@ -56,7 +56,7 @@ Topic.create(name: 'Applied Sciences')
 	puts "creating fake listings"
 	(1..22).step do |subtopic|
 		25.times do 
-			Listing.create(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, virtual: [true, false].sample , in_person: [true, false].sample , user_id:rand(1..26), subtopic_id: subtopic, address: ["11213", "11225"].sample)
+			Listing.create(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph, meeting_type: ["In-person", "Virtual", "Both"].sample, user_id:rand(1..26), subtopic_id: subtopic, address: ["11213", "11225"].sample)
 		end
 	end
 puts "Finished Seeding"
