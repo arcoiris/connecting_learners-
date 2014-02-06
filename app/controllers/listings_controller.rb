@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   def index
-  	@listings = params[:id] && params[:virtual] ? Listing.by_subtopic(params[:id]).by_virtual(:virtual) : Listing.order(created_at: :asc)
+  	@listings = Listing.order(created_at: :asc)
   end
 
   def show
@@ -12,15 +12,16 @@ class ListingsController < ApplicationController
   	@listing = Listing.new
     @subtopics = Subtopic.all
     @user_zip_code = current_user.zip_code
-    @meeting_types = ["In person", "Virtual", "In person and virtual"]
+    @meeting_types = ["In-person", "Virtual", "Both"]
   end
 
   def create
     if user_signed_in? 
-      safe_listing = params.require(:listing).permit(:title, :description, :subtopic_id, :virtual, :in_person, :address, :latitude, :longitude).merge(user_id: current_user.id)
+      safe_listing = params.require(:listing).permit(:title, :description, :subtopic_id, :meeting_type, :address, :latitude, :longitude).merge(user_id: current_user.id)
       @listing = Listing.create safe_listing
       @subtopics = Subtopic.all
       @user_zip_code = current_user.zip_code
+      @meeting_types = ["In-person", "Virtual", "Both"]
       @listing.save ? redirect_to(@listing) : render("new")
     else
       redirect_to new_user_session_path, alert: "Only logged in users can create listings." 
@@ -39,7 +40,7 @@ class ListingsController < ApplicationController
 
   def update
       @listing = Listing.find params[:id]
-      safe_listing = params.require(:listing).permit(:title, :description, :subtopic_id, :virtual, :in_person, :address, :latitude, :longitude).merge(user_id: @listing.user.id)
+      safe_listing = params.require(:listing).permit(:title, :description, :subtopic_id, :meeting_type, :address, :latitude, :longitude).merge(user_id: @listing.user.id)
       @listing.update safe_listing
       redirect_to @listing
   end

@@ -1,5 +1,5 @@
-class RemoveVirtualAndInpersonColumns < ActiveRecord::Migration
+class RemoveVirtualColumn < ActiveRecord::Migration
   def change
-  	remove_column(:listings, :virtual, :in_person)
+  	remove_column(:listings, :virtual)
   end
 end

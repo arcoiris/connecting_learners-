@@ -18,8 +18,7 @@
 		<%= f.input :address, input_html: { value: @user_zip_code}  %>
 	</div>	
 	<div class="checkboxes">
-		<%= f.input :virtual, as: :boolean %>
-		<%= f.input :in_person, as: :boolean %>
+		<%= f.input :meeting_type, collection: ["In-person", "Virtual", "Both"], as: :radio_buttons%>
 	</div>
 	<div class="form-actions">
 		<%= f.button :submit %>
