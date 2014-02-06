@@ -1,5 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+novice:
+	title: Looking for a haskell beginner to code with!
+	description: I have backgroup in object-oriented programming. Looking for functional exp.
+	subtopic_id: 1
+	address: 11225	
+	meeting_type: "In-person"
+
 one:
   user_id: 1
   subtopic_id: 1
