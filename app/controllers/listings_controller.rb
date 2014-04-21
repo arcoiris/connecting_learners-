@@ -39,10 +39,10 @@ class ListingsController < ApplicationController
   end
 
   def update
-      @listing = Listing.find params[:id]
-      safe_listing = params.require(:listing).permit(:title, :description, :subtopic_id, :meeting_type, :address, :latitude, :longitude).merge(user_id: @listing.user.id)
-      @listing.update safe_listing
-      redirect_to @listing
+    @listing = Listing.find params[:id]
+    safe_listing = params.require(:listing).permit(:title, :description, :subtopic_id, :meeting_type, :address, :latitude, :longitude).merge(user_id: @listing.user.id)
+    @listing.update safe_listing
+    redirect_to @listing
   end
   def destroy
       @listing = (Listing.find params[:id])

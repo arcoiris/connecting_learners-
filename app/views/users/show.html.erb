@@ -2,19 +2,16 @@
 	<div><h2><%= @user.name %></h2></div>
 	<p><%= @user.about %></p>
 <h2>Recent Listings:</h2> 
-<div class="span3">
-	<table class="table table-hover">	
-<% @user.listings.each do |listing| %>
-	<th><%= link_to "#{listing.title}", listing_path(listing.id) %> <% if current_user == @user %>    
-		<%= link_to "Edit", edit_listing_path %> | <%= link_to "Delete",  listing_path, method: :delete, data: {confirm: 'Are you sure?'} %> <% end %></th></tr>
+<% if @user.listings.empty? %>
+	<h3>No listings posted yet.</h3> 
+<% else %>
+	<%= render 'listings_box' %>
 <% end %>
-	</table>
-</div>
 
 <% if current_user == @user %>
 	<h2>Your Notifications:</h2>
 	<div class="span3">
-		<table class="table table-hover">	
+		<table class="table table-hover">
 	<% @user.listings.each do |listing| %>
 		<th><%= link_to "#{listing.title}", listing_path(listing.id) %>
 		<% if listing.notifications.empty? %>
@@ -22,7 +19,8 @@
 		<% else %>
 			<% listing.notifications.each do |notification| %>
 				<div><ul><i><%= link_to "#{notification.user.name} is interested.", user_path(notification.user.id) %></i></div><tr>
-			<% end %>
+			<% %>
+end %>
 		<% end %>
 	<% end %>
 <% end %>
