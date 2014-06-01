@@ -1,28 +1,33 @@
 <div class="page">
-	<div><h2><%= @user.name %></h2></div>
+	<h1><%= @user.name %></h1>
 	<p><%= @user.about %></p>
-<h2>Recent Listings:</h2> 
-<% if @user.listings.empty? %>
-	<h3>No listings posted yet.</h3> 
-<% else %>
-	<%= render 'listings_box' %>
-<% end %>
 
-<% if current_user == @user %>
-	<h2>Your Notifications:</h2>
-	<div class="span3">
-		<table class="table table-hover">
-	<% @user.listings.each do |listing| %>
-		<th><%= link_to "#{listing.title}", listing_path(listing.id) %>
-		<% if listing.notifications.empty? %>
-			<ul><i>No notifications</i></ul></tr></th>
-		<% else %>
-			<% listing.notifications.each do |notification| %>
-				<div><ul><i><%= link_to "#{notification.user.name} is interested.", user_path(notification.user.id) %></i></div><tr>
-			<% %>
-end %>
-		<% end %>
+	<h2>Recent Listings:</h2>
+
+	<% if @user.listings.empty? %>
+		<big>No listings posted yet.</big>
+	<% else %>
+		<%= render 'listings_box' %>
 	<% end %>
-<% end %>
+
+	<% if current_user == @user %>
+		<h2>Your notifications:</h2>
+		<div class="span3">
+			<table class="table table-hover">
+					<% if @user.listings.empty? %>
+							<big>Create a listing to start receiving notifications.</big>
+						<% end %>
+
+					<% @user.listings.each do |listing| %>
+						<th><%= link_to "#{listing.title}", listing_path(listing.id) %></th>
+					<% if listing.notifications.empty? %>
+					<ul><i>No notifications</i></ul>
+					<% else %>
+						<% listing.notifications.each do |notification| %>
+							<div><ul><i><%= link_to "#{notification.user.name} is interested.", user_path(notification.user.id) %></i></ul></div>
+						<% end %>
+					<% end %>
+				<% end %>
+			</table>
+	<% end %>
 </div>
-	</div>
